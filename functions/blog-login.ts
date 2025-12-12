@@ -25,7 +25,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const dbUser = await env.DB.prepare("SELECT * FROM users WHERE username = ? AND password = ?").bind(user, pass).first();
     
     if (dbUser) {
-        // 简化的 session 逻辑，生产环境请用 JWT 或 Session ID
         const cookie = serialize('auth_token', `user_${dbUser.id}`, { httpOnly: true, path: '/' });
         return new Response("Login Success", { status: 302, headers: { Location: "/", "Set-Cookie": cookie } });
     }
