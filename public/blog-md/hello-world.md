@@ -1,19 +1,33 @@
-⚡ 深度工作：在碎片化时代重夺专注力"Who you are, what you think, feel, and do, what you love—is the sum of what you focus on." — Cal Newport🌪️ 我们正处在“分心流行病”中📱 通知弹窗、📩 永远读不完的邮件、💬 Slack 的红点...你的大脑是否像一个过热的 CPU，在无数个任务之间频繁上下文切换（Context Switching）？📉 浅薄工作的代价智商下降：频繁切换任务会降低有效智商 10 点（比吸大麻还严重！😱）。焦虑感：由于缺乏产出，导致持续的低效忙碌感。创造力枯竭：灵感需要深度的土壤，而不是碎片的沙砾。🛡️ 开启“上帝模式”：深度工作策略要想在 AI 时代保持竞争力，你必须掌握深度工作 (Deep Work) 的能力。1. 🚫 禁欲主义模式 (Monk Mode)并不是让你出家，而是设定一段绝对隔离的时间。📅 时间块：每天 08:00 - 11:00。📵 物理隔离：手机扔到另一个房间（或者锁进保险箱）。🌐 数字隔离：使用软件屏蔽所有社交媒体。2. 🍅 仪式感与番茄钟大脑需要“预热”。建立一个进入状态的仪式：**我的启动仪式 (Startup Ritual):**
-1. ☕ 冲一杯黑咖啡 (嗅觉触发)
+# ☁️ 为什么我选择 Serverless 构建这个博客
 
-2. 🎧 戴上降噪耳机 (触觉触发)
+> "The best infrastructure is the one you don't have to manage."
 
-3. 🎵 播放 Alpha Waves 脑波音乐 (听觉触发)
+在构建这个博客之初，我面临着无数的选择：WordPress、Ghost、Next.js... 但我想要一些**更纯粹、更极客**的东西。
 
-4. 📝 写下当下最重要的 **唯一任务** (One Thing)
+## 🏗️ 架构解析
 
-5. 🚀 开始 45 分钟的绝对专注
-🧬 打造你的“专注力军火库”工欲善其事，必先利其器。这里有一份赛博朋克风格的专注清单：✅ The StackHardware:
-  - 🎧 Sony WH-1000XM5: "世界瞬间安静"
-  - ⌨️ HHKB Mechanical Keyboard: "指尖的节奏感"
+这个博客采用了目前最前沿的 **Jamstack (Semi-Static)** 架构，运行在 Cloudflare 的边缘网络 (Edge Network) 上。
 
-Software:
-  - 🌲 Forest: "种树救地球，顺便专注"
-  - 📝 Obsidian: "第二大脑，知识联结"
-  - ⬛ Notion: "人生操作系统"
-📊 专注力对比表维度🐤 浅薄工作 (Shallow Work)🦅 深度工作 (Deep Work)价值低价值，易被替代高价值，难以复制状态分心，多任务并行心流 (Flow)，身心合一产出只有忙碌，没有成果突破性进展，杰作诞生心情焦虑，疲惫充实，满足🚀 行动起来 (Call to Action)不要等到明天。就在现在，关掉那个无关的浏览器标签页，把手机扣过去。💡 Challenge: 尝试接下来的 60分钟 不看任何通知。你能做到吗？Focus is the new oil. 💎 守护好你的注意力。Created with ❤️ & Focus
+### 核心组件
+
+1.  **Cloudflare Pages**: 托管静态资源 (HTML/CSS/Images)。
+2.  **Cloudflare D1**: 基于 SQLite 的边缘数据库，用于存储用户评论和账户信息。
+3.  **Cloudflare Functions**: 运行 TypeScript 代码，处理动态请求和 Markdown 渲染。
+
+## ⚡️ 速度与激情的碰撞
+
+传统的动态网站每次访问都需要去源服务器 (Origin Server) 查询数据库，而这个架构完全不同：
+
+- **0ms 冷启动**: 静态资源直接从全球 275+ 个数据中心分发。
+- **边缘计算**: 渲染逻辑在离用户最近的节点执行，延迟极低。
+- **极致省钱**: 对于个人博客来说，几乎是零成本。
+
+## 🛠️ 代码即内容 (Code as Content)
+
+我最喜欢的一点是，发表文章不需要登录复杂的后台 CMS。
+
+```typescript
+// 只需要 Git Push
+git add my-new-post.md
+git commit -m "Publishing a new thought"
+git push
