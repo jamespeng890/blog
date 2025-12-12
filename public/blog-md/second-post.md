@@ -1,9 +1,3 @@
----
-
-### 第二篇：设计与生活
-**文件名建议：** `public/blog-md/digital-minimalism.md`
-
-```markdown
 # 🍎 数字极简主义：重塑你的数字生活
 
 > "Simplicity is the ultimate sophistication." — Leonardo da Vinci
@@ -39,3 +33,4 @@
 试着在这个周末，关掉所有通知，只保留电话功能。你会发现，世界并没有因为你的离线而停止运转，但你的内心会找回久违的宁静。
 
 Stay simple, stay foolish.
+
