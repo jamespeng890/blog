@@ -1,0 +1,13 @@
+name = "my-apple-blog"
+pages_build_output_dir = "./" # 根目录，因为我们把 md 放在根目录的子文件夹
+compatibility_date = "2023-01-01"
+
+[[d1_databases]]
+binding = "DB" # 代码中使用的变量名
+database_name = "blog-db"
+database_id = "你的-D1-数据库-ID"
+
+[vars]
+# 本地开发时的默认值，生产环境请在 Cloudflare 后台设置
+ADMIN_USER = "admin" 
+ADMIN_PASS = "password123
